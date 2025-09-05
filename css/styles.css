@@ -1,0 +1,173 @@
+:root {
+    --color-light-bg: #fff;
+    --color-light-text: #333;
+    --color-light-accent: #ff4081;
+    --color-dark-bg: #121212;
+    --color-dark-text: #f5f5f5;
+    --color-dark-accent: #ffd700;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Light mode */
+body.light-mode {
+    background: var(--color-light-bg);
+    color: var(--color-light-text);
+}
+body.light-mode header, body.light-mode nav, body.light-mode footer {
+    background: var(--color-light-accent);
+    color: #fff;
+}
+
+/* Dark mode */
+body.dark-mode {
+    background: var(--color-dark-bg);
+    color: var(--color-dark-text);
+}
+body.dark-mode header, body.dark-mode nav, body.dark-mode footer {
+    background: var(--color-dark-accent);
+    color: #121212;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 40px 20px;
+}
+header h1 {
+    font-size: 2.5em;
+}
+header p {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+/* Toggle Dark/Light mode */
+.toggle-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+.toggle-btn {
+    cursor: pointer;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px;
+}
+nav a {
+    text-decoration: none;
+    font-weight: 600;
+    color: inherit;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('https://via.placeholder.com/1200x400');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 100px 20px;
+    text-align: center;
+}
+body.light-mode .hero {
+    color: var(--color-light-text);
+}
+
+/* Products Section */
+section {
+    padding: 50px 20px;
+    text-align: center;
+}
+h2 {
+    margin-bottom: 30px;
+}
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+.product {
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    transition: transform 0.2s;
+}
+body.dark-mode .product {
+    background: #1e1e1e;
+}
+.product:hover {
+    transform: translateY(-5px);
+}
+.product img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.product h3 {
+    margin: 15px 0 10px 0;
+}
+.product p {
+    margin: 0 0 10px 0;
+}
+.buy-btn {
+    text-decoration: none;
+    padding: 8px 12px;
+    background: var(--color-light-accent);
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+}
+body.dark-mode .buy-btn {
+    background: var(--color-dark-accent);
+    color: #121212;
+}
+
+/* Contact Section */
+#contact p a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+}
+#contact p a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+}
+footer a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        padding: 60px 20px;
+    }
+}
