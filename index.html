@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mamyora - Boutique en ligne</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
@@ -13,7 +13,7 @@
 
     <!-- Toggle Dark/Light mode -->
     <div class="toggle-container">
-        <button class="toggle-btn" onclick="toggleMode()">🌙 / ☀️</button>
+        <button id="toggle-button">🌙 / ☀️</button>
     </div>
 
     <header>
@@ -33,36 +33,25 @@
         <p>Livraison rapide partout Ouagadougou</p>
     </section>
 
-    <!-- Produits Pagnes de types tissé et légés, dentelle, -->
+    <!-- Produits -->
     <section id="produits">
         <h2>Nos Produits</h2>
-        <div class="product-list">
-            <div class="product">
-                <img src="https://via.placeholder.com/220x150?text=Robe+Africaine" alt="Robe Africaine">
-                <h3>Robe Africaine</h3>
-                <p>Prix : 10 000 FCFA</p>
-                <a href="https://wa.me/22669551548" class="buy-btn">Commander</a>
-            </div>
-            <div class="product">
-                <img src="https://via.placeholder.com/220x150?text=Sac+%C3%A0+Main" alt="Sac à Main">
-                <h3>Sac à Main</h3>
-                <p>Prix : 8 000 FCFA</p>
-                <a href="https://wa.me/22669551548" class="buy-btn">Commander</a>
-            </div>
-            <div class="product">
-                <img src="https://via.placeholder.com/220x150?text=Chaussures+Femme" alt="Chaussures Femme">
-                <h3>Chaussures Femme</h3>
-                <p>Prix : 12 000 FCFA</p>
-                <a href="https://wa.me/22669551548" class="buy-btn">Commander</a>
-            </div>
-            <div class="product">
-                <img src="https://via.placeholder.com/220x150?text=Montre+Élégante" alt="Montre Élégante">
-                <h3>Les ensembles Bijoue</h3>
-                <p>Prix : 15 000 FCFA</p>
-                <a href="https://wa.me/22669551548" class="buy-btn">Commander</a>
-            </div>
+        <div class="product-list" id="product-list">
+            <!-- Les produits seront générés automatiquement via JSON -->
         </div>
     </section>
+
+    <!-- Popup Produit -->
+    <div id="product-popup" class="popup-hidden">
+        <div class="popup-content">
+            <span class="close-popup" id="close-popup">&times;</span>
+            <img id="popup-image" src="" alt="Produit">
+            <h3 id="popup-name"></h3>
+            <p id="popup-price"></p>
+            <p id="popup-stock"></p>
+            <a href="#" id="popup-buy" target="_blank" class="buy-btn">Commander</a>
+        </div>
+    </div>
 
     <!-- Contact -->
     <section id="contact">
@@ -78,7 +67,6 @@
         <p><a href="https://wa.me/22669551548">Commander maintenant</a></p>
     </footer>
 
-    <!-- Script Dark/Light Mode -->
     <script src="script.js"></script>
 </body>
 

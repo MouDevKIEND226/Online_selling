@@ -1,34 +1,45 @@
 :root {
-    --color-light-bg: #fff;
+    --color-light-bg: #fdfdfd;
     --color-light-text: #333;
-    --color-light-accent: #ff4081;
+    --color-light-accent: #ff6f61;
     --color-dark-bg: #121212;
     --color-dark-text: #f5f5f5;
-    --color-dark-accent: #ffd700;
+    --color-dark-accent: #ffb700;
+    --transition-speed: 0.3s;
 }
 
-body {
+* {
+    box-sizing: border-box;
     margin: 0;
+    padding: 0;
     font-family: 'Montserrat', sans-serif;
-    transition: background 0.3s, color 0.3s;
 }
 
-/* Light mode */
+/* Body */
+body {
+    transition: background var(--transition-speed), color var(--transition-speed);
+}
+
+/* Light Mode */
 body.light-mode {
     background: var(--color-light-bg);
     color: var(--color-light-text);
 }
-body.light-mode header, body.light-mode nav, body.light-mode footer {
+body.light-mode header,
+body.light-mode nav,
+body.light-mode footer {
     background: var(--color-light-accent);
     color: #fff;
 }
 
-/* Dark mode */
+/* Dark Mode */
 body.dark-mode {
     background: var(--color-dark-bg);
     color: var(--color-dark-text);
 }
-body.dark-mode header, body.dark-mode nav, body.dark-mode footer {
+body.dark-mode header,
+body.dark-mode nav,
+body.dark-mode footer {
     background: var(--color-dark-accent);
     color: #121212;
 }
@@ -40,10 +51,10 @@ header {
 }
 header h1 {
     font-size: 2.5em;
+    margin-bottom: 10px;
 }
 header p {
     font-size: 1.2em;
-    margin-top: 10px;
 }
 
 /* Toggle Dark/Light mode */
@@ -59,22 +70,28 @@ header p {
     border: none;
     border-radius: 5px;
     font-weight: bold;
+    background: #fff;
+}
+body.dark-mode .toggle-btn {
+    background: #333;
+    color: #f5f5f5;
 }
 
 /* Navigation */
 nav {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 25px;
     padding: 15px;
 }
 nav a {
     text-decoration: none;
     font-weight: 600;
     color: inherit;
+    transition: color var(--transition-speed);
 }
 nav a:hover {
-    text-decoration: underline;
+    color: #ffd700;
 }
 
 /* Hero Section */
@@ -97,7 +114,10 @@ section {
 }
 h2 {
     margin-bottom: 30px;
+    font-size: 2em;
 }
+
+/* Product Grid */
 .product-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -108,13 +128,15 @@ h2 {
     border-radius: 10px;
     padding: 15px;
     box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-    transition: transform 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
 }
 body.dark-mode .product {
     background: #1e1e1e;
 }
 .product:hover {
     transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
 }
 .product img {
     width: 100%;
@@ -124,6 +146,7 @@ body.dark-mode .product {
 }
 .product h3 {
     margin: 15px 0 10px 0;
+    font-size: 1.2em;
 }
 .product p {
     margin: 0 0 10px 0;
@@ -139,6 +162,43 @@ body.dark-mode .product {
 body.dark-mode .buy-btn {
     background: var(--color-dark-accent);
     color: #121212;
+}
+
+/* Popup Produit */
+#product-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+.popup-hidden {
+    display: none;
+}
+.popup-content {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+}
+body.dark-mode .popup-content {
+    background: #1e1e1e;
+    color: #f5f5f5;
+}
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5em;
+    cursor: pointer;
 }
 
 /* Contact Section */
@@ -169,5 +229,8 @@ footer a:hover {
 @media (max-width: 768px) {
     .hero {
         padding: 60px 20px;
+    }
+    .product-list {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     }
 }
